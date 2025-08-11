@@ -4,6 +4,9 @@
   "installCommand": "npm ci --omit=optional --ignore-scripts",
   "buildCommand": "NX_DAEMON=false npx nx reset && NX_DAEMON=false npm run vercel:build",
   "outputDirectory": "dist/packages/react-ui",
+  "env": {
+    "NX_DAEMON": "false"
+  },
   "functions": {
     "api/**": {
       "memory": 1024,
