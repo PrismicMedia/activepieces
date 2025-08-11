@@ -25,6 +25,11 @@
     "i18n:extract": "i18next --config packages/react-ui/i18next-parser.config.js && jq 'to_entries | map({(.key): .key}) | add' packages/react-ui/public/locales/en/translation.json > packages/react-ui/public/locales/en/translation.tmp.json && mv packages/react-ui/public/locales/en/translation.tmp.json packages/react-ui/public/locales/en/translation.json"
   },
   "private": true,
+  "engines": {
+    "node": "20.x",
+    "npm": ">=9"
+  },
+
   "dependencies": {
     "@activepieces/import-fresh-webpack": "3.3.0",
     "@ai-sdk/azure": "1.0.10",

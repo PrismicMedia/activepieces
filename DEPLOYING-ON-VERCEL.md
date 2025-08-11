@@ -106,3 +106,7 @@ If using custom domains:
   - Expect fallback to polling, or consider an external WebSocket host
 - Timeouts:
   - Increase `functions.api/**.maxDuration` in `vercel.json` if needed (up to Vercel limits)
+## Runtime requirements on Vercel
+
+- Use Node.js 20.x for both build and Functions runtime (set via package.json "engines.node": "20.x" and vercel.json functions.runtime = nodejs20.x).
+- The install step uses `npm ci --omit=optional` to avoid compiling optional native addons (e.g., isolated-vm) that are not required for the static UI build and serverless adapter. If you later need those native modules at build time, remove the omit flag and ensure a compatible Node/toolchain.

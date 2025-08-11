@@ -1,11 +1,12 @@
 {
   "version": 2,
   "framework": null,
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --omit=optional",
   "buildCommand": "npx nx build react-ui",
   "outputDirectory": "dist/packages/react-ui",
   "functions": {
     "api/**": {
+      "runtime": "nodejs20.x",
       "memory": 1024,
       "maxDuration": 30
     }
