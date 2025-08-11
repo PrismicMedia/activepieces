@@ -2,7 +2,7 @@
   "version": 2,
   "framework": null,
   "installCommand": "npm ci --omit=optional --ignore-scripts",
-  "buildCommand": "npm run vercel:build",
+  "buildCommand": "NX_DAEMON=false npx nx reset && NX_DAEMON=false npm run vercel:build",
   "outputDirectory": "dist/packages/react-ui",
   "functions": {
     "api/**": {

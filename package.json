@@ -30,9 +30,6 @@
     "node": "20.x",
     "npm": ">=9"
   },
-  "optionalDependencies": {
-    "isolated-vm": "5.0.1"
-  },
 
 
   "dependencies": {
@@ -414,6 +411,7 @@
     "webpack-ignore-dynamic-require": "1.0.0"
   },
   "optionalDependencies": {
+    "isolated-vm": "5.0.1",
     "@nx/nx-darwin-arm64": "18.0.4",
     "@nx/nx-darwin-x64": "18.0.4",
     "@nx/nx-linux-arm-gnueabihf": "18.0.4",
