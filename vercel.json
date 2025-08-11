@@ -9,5 +9,10 @@
       "memory": 1024,
       "maxDuration": 30
     }
-  }
+  },
+  "routes": [
+    { "src": "^/api/.*", "dest": "/api" },
+    { "handle": "filesystem" },
+    { "src": ".*", "dest": "/" }
+  ]
 }

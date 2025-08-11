@@ -6,7 +6,7 @@ import { API_BASE_URL } from '@/lib/api';
 import { authenticationSession } from '@/lib/authentication-session';
 
 const socket = io(API_BASE_URL, {
-  transports: ['websocket'],
+  transports: ['websocket', 'polling'],
   path: '/api/socket.io',
   autoConnect: false,
 });
