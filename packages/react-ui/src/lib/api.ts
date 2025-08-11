@@ -11,9 +11,10 @@ import { authenticationSession } from '@/lib/authentication-session';
 import { ErrorCode } from '@activepieces/shared';
 
 export const API_BASE_URL =
-  import.meta.env.MODE === 'cloud'
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) ??
+  (import.meta.env.MODE === 'cloud'
     ? 'https://cloud.activepieces.com'
-    : window.location.origin;
+    : window.location.origin);
 export const API_URL = `${API_BASE_URL}/api`;
 
 const disallowedRoutes = [
