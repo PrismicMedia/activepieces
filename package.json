@@ -29,6 +29,10 @@
     "node": "20.x",
     "npm": ">=9"
   },
+  "optionalDependencies": {
+    "isolated-vm": "5.0.1"
+  },
+
 
   "dependencies": {
     "@activepieces/import-fresh-webpack": "3.3.0",
@@ -187,7 +191,6 @@
     "intl-messageformat": "10.5.14",
     "ioredis": "5.4.1",
     "is-base64": "1.1.0",
-    "isolated-vm": "5.0.1",
     "js-yaml": "4.1.0",
     "jsdom": "23.0.1",
     "jshint": "2.13.6",
