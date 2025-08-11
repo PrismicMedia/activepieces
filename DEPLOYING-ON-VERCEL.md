@@ -106,7 +106,11 @@ If using custom domains:
   - Expect fallback to polling, or consider an external WebSocket host
 - Timeouts:
   - Increase `functions.api/**.maxDuration` in `vercel.json` if needed (up to Vercel limits)
+- Nx project graph errors on Vercel:
+  - The build runs `nx repair` and `nx reset`, disables the Nx daemon and cache via `NX_DAEMON=false` and `NX_SKIP_NX_CACHE=1`, and builds with `--verbose`.
+  - If Nx still fails to generate the project graph in CI, the build falls back to Vite: `npx vite build --config packages/react-ui/vite.config.ts --outDir dist/packages/react-ui`.
+
 ## Runtime requirements on Vercel
 
-- Use Node.js 20.x for both build and Functions runtime (set via package.json "engines.node": "20.x" and vercel.json functions.runtime = nodejs20.x).
-- The install step uses `npm ci --omit=optional` to avoid compiling optional native addons (e.g., isolated-vm) that are not required for the static UI build and serverless adapter. If you later need those native modules at build time, remove the omit flag and ensure a compatible Node/toolchain.
+- Use Node.js 20.x for builds (set via package.json `"engines.node": "20.x"`).
+- The install step uses `npm ci --omit=optional --ignore-scripts` to avoid compiling optional native addons (e.g., isolated-vm) that are not required for the static UI build and serverless adapter. If you later need those native modules at build time, remove the omit flag and ensure a compatible Node/toolchain.

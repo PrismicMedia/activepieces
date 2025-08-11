@@ -2,10 +2,11 @@
   "version": 2,
   "framework": null,
   "installCommand": "npm ci --omit=optional --ignore-scripts",
-  "buildCommand": "NX_DAEMON=false npx nx reset && NX_DAEMON=false npm run vercel:build",
+  "buildCommand": "npx nx repair || true && npx nx reset || true && NX_DAEMON=false NX_SKIP_NX_CACHE=1 npx nx build react-ui --verbose || npx vite build --config packages/react-ui/vite.config.ts --outDir dist/packages/react-ui",
   "outputDirectory": "dist/packages/react-ui",
   "env": {
-    "NX_DAEMON": "false"
+    "NX_DAEMON": "false",
+    "NX_SKIP_NX_CACHE": "1"
   },
   "functions": {
     "api/**": {
